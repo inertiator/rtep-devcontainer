@@ -1,10 +1,17 @@
 {
-  "name": "Rust Development Environment"
-  "image": "mcr.microsoft.com/devcontainers/rust:bookworm",
+  "name": "Rust Development Environment",
+  "dockerFile": "Dockerfile",
   "customizations": {
     "vscode": {
       "extensions": ["rust-lang.rust-analyzer"]
     }
   },
+  "workspaceFolder": "/workspace",
+  "mounts": [
+    "source=${env:USERPROFILE}/.ssh,target=/home/arcanine/.ssh,type=bind"
+  ],
+  "remoteUser": "arcanine",
+  "workspaceMount": "source=/home/workspace,target=/workspace,type=bind,consistency=cached",
+  "postCreateCommand": "/bin/bash ${workspaceFolder}/.devcontainer/setup.sh",
   "forwardPorts": [3000]
 }
