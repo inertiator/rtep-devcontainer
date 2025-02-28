@@ -8,10 +8,11 @@
   },
   "workspaceFolder": "/workspace",
   "mounts": [
-    "source=${env:USERPROFILE}/.ssh,target=/home/arcanine/.ssh,type=bind"
+    "source=${env:USERPROFILE}/.ssh,target=/home/arcanine/.ssh,type=bind",
+    "source=${localWorkspaceFolder}/.devcontainer,target=/home/arcanine/.devcontainer,type=bind"
   ],
   "remoteUser": "arcanine",
   "workspaceMount": "source=/home/workspace,target=/workspace,type=bind,consistency=cached",
-  "postCreateCommand": "/bin/bash ${workspaceFolder}/.devcontainer/setup.sh",
+  "postCreateCommand": "/bin/bash ~/.devcontainer/setup.sh",
   "forwardPorts": [3000]
 }
